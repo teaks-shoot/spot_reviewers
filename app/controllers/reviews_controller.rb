@@ -6,8 +6,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
-    redirect_to reviews_path(@review.id)
+    if @review.save
+      redirect_to reviews_path(@review.id)
+    else
+      render :new
+    end
   end
 
   def index
