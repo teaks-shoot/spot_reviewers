@@ -1,2 +1,30 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<div>
+  <p>
+    <%= link_to user_path(@user.id) do %>
+      <%= image_tag @review.user.get_profile_image(50,50) %> <br>
+      <%= @user.name %>
+    <% end %>
+  </p>
+  <p>名所：<%= @review.title %></p>
+  <p>レビュー：<%= @review.body %></p>
+  <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+</div>
+
+<div>
+  <table>
+    <tbody>
+      <tr>
+        
+        <% if @review.user_id == current_user.id %> 
+          <td> 
+            <%= link_to "編集", edit_review_path(@review.id), class: "btn btn-sm btn-success" %>
+          </td>
+          <td>
+            <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-sm btn-danger" %>
+          </td>
+        <% end %>
+      
+      </tr>
+    </tbody>
+  </table>
+</div>
