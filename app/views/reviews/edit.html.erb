@@ -1,2 +1,26 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h1>レビュー編集フォーム</h1>
+
+<% if @review.errors.any? %>
+  <%= @review.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @review.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= form_with model: @review do |f| %>
+    
+    <h4>名所</h4>
+    <%= f.text_field :title %>
+    
+    <h4>レビュー</h4>
+    <%= f.text_area :body %> <br>
+    
+    <%= f.submit '更新' %>
+    
+  <% end %>
+</div>
+
+<%= link_to "詳細ページへ戻る", review_path(@review.id) %> | <%= link_to "一覧へ戻る", reviews_path %>

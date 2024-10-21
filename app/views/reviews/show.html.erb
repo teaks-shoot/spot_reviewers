@@ -5,8 +5,13 @@
       <%= @user.name %>
     <% end %>
   </p>
-  <p>名所：<%= @review.title %></p>
-  <p>レビュー：<%= @review.body %></p>
+  
+  <p>名所</p>
+  <p><%= @review.title %></p>
+  
+  <p>レビュー</p>
+  <p><%= @review.body %></p>
+  
   <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
 </div>
 
