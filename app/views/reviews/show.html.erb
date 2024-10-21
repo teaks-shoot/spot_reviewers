@@ -1,10 +1,19 @@
 <div>
-  <p>
-    <%= link_to user_path(@user.id) do %>
-      <%= image_tag @review.user.get_profile_image(50,50) %> <br>
-      <%= @user.name %>
-    <% end %>
-  </p>
+  <% if current_user == @review.user %>
+    <p>
+      <%= link_to mypage_path do %>
+        <%= image_tag @review.user.get_profile_image(50,50) %> <br>
+        <%= current_user.name %>
+      <% end %>
+    </p>
+  <% else %>  
+    <p>
+      <%= link_to user_path(@user.id) do %>
+        <%= image_tag @review.user.get_profile_image(50,50) %> <br>
+        <%= @user.name %>
+      <% end %>
+    </p>
+  <% end %>
   
   <p>名所</p>
   <p><%= @review.title %></p>
