@@ -1,18 +1,18 @@
 <div>
   <% if current_user == @review.user %>
-    <p>
+    <div>
       <%= link_to mypage_path do %>
         <%= image_tag @review.user.get_profile_image(50,50) %> <br>
         <%= current_user.name %>
       <% end %>
-    </p>
+    </div>
   <% else %>  
-    <p>
+    <div>
       <%= link_to user_path(@user.id) do %>
         <%= image_tag @review.user.get_profile_image(50,50) %> <br>
         <%= @user.name %>
       <% end %>
-    </p>
+    </div>
   <% end %>
   
   <p>名所</p>

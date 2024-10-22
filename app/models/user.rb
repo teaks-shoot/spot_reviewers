@@ -16,4 +16,8 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
+  def review_count
+    reviews.count
+  end
+  
 end
