@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
+    @user = current_user
   end
   
   

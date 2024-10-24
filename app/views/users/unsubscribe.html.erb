@@ -1,2 +1,20 @@
-<h1>Users#unsubscribe</h1>
-<p>Find me in app/views/users/unsubscribe.html.erb</p>
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+     <h2 class="text-center font-weight-bold mb-5">退会確認画面</h2>
+
+     <p class="text-center">退会処理を行うと、これまでの会員登録情報や</p>
+     <p class="text-center">投稿履歴、コメントが削除されます。</p>
+     <p class="text-center">退会する場合は、「退会する」をクリックしてください。</p>
+
+      <div class="d-flex justify-content-center pt-4">
+        <div class="px-3">
+          <%= link_to "戻る", edit_user_path(@user.id), class: "btn btn-primary" %>
+        </div>
+        <div class="px-3">
+          <%= link_to "退会する", user_path(@user.id), method: :delete, "data-confirm" => "本当に退会しますか?", class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
