@@ -28,6 +28,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    flash[:notice] = "退会処理が完了しました。ご利用ありがとうございました。"
+    redirect_to '/'
+  end
   
   private
   def user_params
