@@ -31,8 +31,8 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.destroy
-    flash[:notice] = "退会処理が完了しました。ご利用ありがとうございました。"
-    redirect_to '/'
+    flash[:notice] = "退会処理が完了しました。"
+    redirect_to new_user_registration_path
   end
   
   
