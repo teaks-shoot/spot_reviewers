@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
-    redirect_to '/reviews'
+    redirect_to '/mypage'
   end  
   
   
