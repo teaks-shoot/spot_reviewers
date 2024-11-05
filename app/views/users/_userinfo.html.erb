@@ -59,6 +59,9 @@
           <td colspan="3">
             投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
           </td>
+          <td>
+            <%= link_to "コメント数：#{review.review_comments.count}", review_path(review.id) %>
+          </td>
         </tr>
       </tbody>
     <% end %>

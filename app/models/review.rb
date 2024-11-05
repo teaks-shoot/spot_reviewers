@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
+  has_many :review_comments, dependent: :destroy
   
   validates :title, presence: true
   validates :body, presence: true
