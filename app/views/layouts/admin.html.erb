@@ -9,12 +9,11 @@
   </head>
   
   <body>
-    <%= yield %>
-  
     <% if admin_signed_in? %>
       <div class="text-center mt-5">
         <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
       </div>
-    <% end %>
+    <% end %>    
+    <%= yield %>
   </body>
 </html>
