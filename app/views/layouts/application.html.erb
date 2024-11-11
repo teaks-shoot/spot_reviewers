@@ -10,48 +10,53 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
     <header> 
-      <a class="navbar-brand" href="/">Spot Reviewers</a>
+      <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <div class="d-flex justify-content-center p-2">
+            <a class="navbar-brand font-weight-bold" href="/">Spot Reviewers</a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <ul class="breadcrumb font-weight-bold">
+              <% if user_signed_in? %>
+                <li class="breadcrumb-item">
+                  <%= link_to 'マイページ', mypage_path %>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to '投稿一覧', reviews_path %>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to '投稿フォーム', new_review_path %>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="breadcrumb-item ">
+                  <%= link_to 'マイページ', mypage_path %>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to '投稿一覧', reviews_path %>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to '会員登録', new_user_registration_path %>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to 'ログイン', new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    
-    <nav>
-      <ul>
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to 'マイページ', mypage_path %>
-          </li>
-          <li>
-            <%= link_to '投稿一覧', reviews_path %>
-          </li>
-          <li>
-            <%= link_to '投稿フォーム', new_review_path %>
-          </li>
-          <li>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to 'マイページ', mypage_path %>
-          </li>
-          <li>
-            <%= link_to '投稿一覧', reviews_path %>
-          </li>
-          <li>
-            <%= link_to '会員登録', new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to 'ログイン', new_user_session_path %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
 
     <main>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       
-      <div class="d-flex justify-content-center mb-3">
+      <div class="d-flex justify-content-center mb-2">
         <%= render "public/searches/formbox" %>
       </div>
       
