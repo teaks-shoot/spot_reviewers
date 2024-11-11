@@ -1,0 +1,12 @@
+<div class="user_edit">
+   <%= link_to "ユーザー編集", edit_user_path(@user.id) %>
+</div>
+
+<div>
+  <%= link_to mypage_path do %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+  <% end %>
+</div>
+
+
+<%= render 'public/users/userinfo', user: @user, reviews: @reviews %>

@@ -1,0 +1,23 @@
+<div class="container mx-auto">
+  <div class="mt-3">
+    <h1 class="text-center">ユーザー詳細</h1>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <%= link_to mypage_path do %>
+          <%= image_tag @user.get_profile_image(100,100) %>
+        <% end %>
+        <p> 名前　　　　　　：<%= @user.name %> </p>
+        <p> メールアドレス　：<%= @user.email %> </p>
+        <p> 紹介文　　　　　：<%= @user.infomation %> </p>
+        <p> レビュー数　　　：<%= @user.review_count %> </p>
+        <p> コメントした回数：<%= @user.review_comments.count %> </p>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <%= link_to "退会させる", admin_user_path(@user.id), method: :delete, "data-confirm" => "本当に退会させますか?", class: "btn btn-danger" %>
+      </div>
+    </div>  
+  </div>
+</div>
