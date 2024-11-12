@@ -1,23 +1,26 @@
-<h2> このサイトは、名所や穴場スポットを共有できるレビューサイトです。 </h2>
+<div class="container mt-2">
+  <div class="row">
+    <div class="mx-auto">  
+      <h2 class="font-weight-bold pb-4"> このサイトは、名所や穴場スポットを共有できるレビューサイトです。 </h2>
 
 
-<p>誰もが知っている観光名所や</p>
-<p>ニッチな穴場スポットまで、</p>
-<p>幅広く探すことができます。</p>
+      <p class="text-center">誰もが知っている観光名所やニッチな穴場スポットまで、幅広く探すことができます。</p>
+
+      <p class="text-center">また、以前から知っていた名所であっても、他のサイトでは知ることのなかった、</p>
+      <p class="text-center">お客様目線での名所の素晴らしさを再確認することができるかもしれません。</p>
+
+      <p class="text-center">さらに、特定のジャンルを絞り込むことで、自分好みの名所を探すことが可能です。</p>
 
 
-<p>また、以前から知っていた名所であっても</p>
-<p>他のサイトでは知ることのなかった、</p>
-<p>お客様目線での名所の素晴らしさを再確認することができるかもしれません。</p>
-
-
-<p>さらに、特定のジャンルを絞り込むことで</p>
-<p>自分好みの名所を探すことが可能です。</p>
-
-
-
-<h6>↓ 会員の方はこちらから ↓</h6>
-<%= link_to "ログイン", new_user_session_path %>
-
-<h6>↓ 初めての方はこちら ↓</h6>
-<%= link_to "会員登録", new_user_registration_path %>
+      <div class="mx-auto btn-wrapper col-7">
+        <div class="row mb-3 pt-4">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary btn-block font-weight-bold" %>
+        </div>
+        <div class="row">
+          <%= link_to "会員登録", new_user_registration_path, class: "btn btn-outline-info btn-block font-weight-bold" %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
