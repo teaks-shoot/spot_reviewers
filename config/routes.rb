@@ -7,9 +7,13 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
+  
+   devise_for :users, controllers: { 
+     registrations: 'public/registrations',
+     sessions: 'public/sessions'
+   }
 
   scope module: :public do
-    devise_for :users
     root to: "homes#top"
     get 'mypage' => 'users#mypage', as: 'mypage'
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
