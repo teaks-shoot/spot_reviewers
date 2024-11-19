@@ -1,26 +1,53 @@
-<h1>レビュー投稿フォーム</h1>
+<div class="container">
+  <h1>レビュー投稿フォーム</h1>
 
-<% if @review.errors.any? %>
-  <%= @review.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @review.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<div>
-  <%= form_with model: @review do |f| %>
-    
-    <h4>名所</h4>
-    <%= f.text_field :title %>
-    
-    <h4>レビュー</h4>
-    <%= f.text_area :body %> <br>
-    
-    <%= f.submit '投稿' %>
-    
+  <% if @review.errors.any? %>
+    <%= @review.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
-</div>
 
-<%= link_to "一覧へ戻る", reviews_path %>
+  <%= form_with model: @review, local: true do |f| %>
+    <div class="form-group">
+      <h4>名所</h4>
+      <%= f.text_field :title, class: 'form-control review_title' %>
+    </div>
+  
+    <div class="form-group">  
+      <h4>レビュー</h4>
+      <%= f.text_area :body, class: 'form-control review_body' %> <br>
+    </div>
+  
+    <div class="form-group" id="star">
+      <h4>評価</h4>
+      <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+      <div id="post_raty"></div>
+    </div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#post_raty');
+        if (elem == null) return;
+  
+        elem.innerHTML = ""
+        let opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'review[star]',
+        };
+        raty(elem, opt);
+      });
+    </script>
+  
+    <div class="form-group">
+      <%= f.submit '投稿' ,class: 'btn btn-success' %>
+    </div>
+  
+  <% end %>
+
+
+  <%= link_to "一覧へ戻る", reviews_path %>
+</div>

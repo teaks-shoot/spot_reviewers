@@ -1,11 +1,12 @@
-
-<table>
+<div class="container">
+  <table>
 
     <thead>
       <tr>
         <th></th>
         <th> 名所 </th>
         <th> レビュー </th>
+        <th> 評価 </th>
         <th></th>
       </tr>
     </thead>
@@ -37,6 +38,10 @@
           <td>
             <%= truncate(review.body, length: 30, omission: '...') %>
           </td>
+          
+          <td>
+            <%= render "starrate", review: review %>
+          </td>
         </tr>
         
         <tr>
@@ -51,4 +56,5 @@
     <% end %>
   </div>
 
-</table>
+  </table>
+</div>

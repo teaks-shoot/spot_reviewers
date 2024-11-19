@@ -1,28 +1,59 @@
-<h1>レビュー編集フォーム</h1>
+<div class="container">
+  <h1>レビュー編集フォーム</h1>
 
-<% if @review.errors.any? %>
-  <%= @review.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @review.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<div>
-  <%= form_with model: @review do |f| %>
-    
-    <h4>名前</h4>
-    <%= f.text_field :title %>
-    
-    <h4>レビュー</h4>
-    <%= f.text_area :body %> <br>
-    
-    <div>
-      <%= f.submit '更新' %>  <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-sm btn-danger" %>
-    </div>
-    
+  <% if @review.errors.any? %>
+    <%= @review.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
-</div>
 
-<%= link_to "詳細ページへ戻る", review_path(@review.id) %> | <%= link_to "一覧へ戻る", reviews_path %>
+  <div>
+    <%= form_with model: @review do |f| %>
+      <div class="form-group">
+        <h4>名前</h4>
+        <%= f.text_field :title, class: 'form-control review_title' %>
+      </div>
+    
+      <div class="form-group">
+        <h4>レビュー</h4>
+        <%= f.text_area :body, class: 'form-control review_body' %> <br>
+      </div>
+    
+      <h4>評価</h4>
+      <div class="form-group" id="star">
+        <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+        <div id="post_raty"></div>
+      </div>
+      <script>
+        $(document).on('turbolinks:load', function() {
+          let elem = document.querySelector('#post_raty');
+          if (elem == null) return;
+
+          elem.innerHTML = ""
+          let opt = {  
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            score: <%= @review.star %>,
+            scoreName: 'review[star]',
+          };
+          raty(elem, opt);
+        });
+      </script>
+    
+      <div>
+        <%= f.submit '更新', class: 'btn btn-sm btn-success' %>
+        <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-sm btn-danger" %>
+      </div>
+    
+    <% end %>
+  </div>
+  
+  <div class="my-4">
+    <%= link_to "詳細ページへ戻る", review_path(@review.id) %> | <%= link_to "一覧へ戻る", reviews_path %>
+  </div>
+
+</div>
