@@ -23,11 +23,13 @@
     <tr>
       <th>名所</th>
       <th>レビュー</th>
+      <th>評価</th>
     </tr>
     <% @records.each do |review| %>
       <tr>
         <td><%= link_to review.title, review_path(review) %></td>
         <td><%= truncate(review.body, length: 30, omission: '...') %></td>
+        <td><%= render "public/reviews/starrate", review: review %></td>
       </tr>
     <% end %>
   </table>

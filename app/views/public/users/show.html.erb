@@ -1,8 +1,11 @@
-<div>
-  <%= link_to user_path(@user.id) do %>
-    <%= image_tag @user.get_profile_image(100,100) %>
-  <% end %>
+<div class="container">
+  <div>
+    <%= link_to user_path(@user.id) do %>
+      <%= image_tag @user.get_profile_image(100,100) %>
+    <% end %>
+  </div>
+
+
+  <%= render 'public/users/userinfo', user: @user, reviews: @reviews %>
+
 </div>
-
-
-<%= render 'public/users/userinfo', user: @user, reviews: @reviews %>
