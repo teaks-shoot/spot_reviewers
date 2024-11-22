@@ -8,12 +8,36 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <body>
+  <header>
     <% if admin_signed_in? %>
-      <div class="text-center mt-5">
-        <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
-      </div>
-    <% end %>    
+      <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <div class="d-flex justify-content-center p-2">
+            <a class="navbar-brand font-weight-bold" href="top">Spot Reviewers【管理用】</a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <ul class="breadcrumb font-weight-bold">
+              <li class="breadcrumb-item ">
+                <%= link_to admin_users_path do %>
+                  ユーザー一覧
+                <% end %>
+              </li>
+              <li class="breadcrumb-item">
+                <%= link_to admin_reviews_path do %>
+                  レビュー一覧
+                <% end %>
+              </li>
+              <li class="breadcrumb-item">
+                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <% end %>
+  </header>
+  
+  <body>
     <%= yield %>
   </body>
 </html>
