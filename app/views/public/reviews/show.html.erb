@@ -25,8 +25,15 @@
   
     <h4>評価</h4>
     <p><%= render "starrate", review: @review %></p>
+    
+    <h4>タグ</h4>
+    <div class="border border-primary w-25">
+      <% @review.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </div>
   
-    <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d %H：%M') %></p>
+    <p class="pt-4">投稿日：<%= @review.created_at.strftime('%Y/%m/%d %H：%M') %></p>
   </div>
 
   <div>

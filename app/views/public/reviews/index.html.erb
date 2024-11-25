@@ -7,6 +7,7 @@
         <th> 名所 </th>
         <th> レビュー </th>
         <th> 評価 </th>
+        <th> タグ </th>
         <th></th>
       </tr>
     </thead>
@@ -41,6 +42,12 @@
           
           <td>
             <%= render "starrate", review: review %>
+          </td>
+          
+          <td>
+            <% review.tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
           </td>
         </tr>
         
