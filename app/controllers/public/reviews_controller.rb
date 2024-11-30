@@ -17,7 +17,9 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = params[:name].present? ? Tag.find(params[:name]).reviews : Review.all
+    @tags = Tag.all
+  
   end
 
   def show
@@ -48,7 +50,7 @@ class Public::ReviewsController < ApplicationController
   
   private
   def review_params
-    params.require(:review).permit(:title, :body, :star)
+    params.require(:review).permit(:title, :body, :star, :tag_ids)
   end
   
   def is_matching_login_user

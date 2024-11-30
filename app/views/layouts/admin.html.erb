@@ -28,6 +28,11 @@
                 <% end %>
               </li>
               <li class="breadcrumb-item">
+                <%= link_to admin_tags_path do %>
+                  タグ一覧
+                <% end %>
+              </li>
+              <li class="breadcrumb-item">
                 <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
               </li>
             </ul>

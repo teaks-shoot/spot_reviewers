@@ -4,6 +4,7 @@ class Admin::ReviewsController < ApplicationController
     
   def index
     @reviews = Review.all
+    @tags = Tag.all
   end
 
   def show
