@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :destroy] do
       resources :review_comments, only: [:destroy]
     end
+    resources :tags, only: [:create, :index, :edit, :update, :destroy]
   end
   
   devise_for :admin, skip: [:registrations, :password], controllers: {

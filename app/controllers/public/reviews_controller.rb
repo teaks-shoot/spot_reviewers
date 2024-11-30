@@ -17,7 +17,9 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = params[:name].present? ? Tag.find(params[:name]).reviews : Review.all
+    @tags = Tag.all
+  
   end
 
   def show
