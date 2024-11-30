@@ -5,8 +5,8 @@
       <div class="col-md-4 mt-3">
         <ul>
           <% @tags.each do |tag| %>
-            <li class="pb-2">
-              <%= tag.name %>
+            <li class="pb-2"> <%= tag.name %>　　
+              <%= link_to "削除", admin_tag_path(tag.id), method: :delete, "data-confirm" => "本当に削除しますか?" %>
             </li>
           <% end %>
         </ul>

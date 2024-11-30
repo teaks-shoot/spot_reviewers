@@ -43,7 +43,7 @@
           raty(elem, opt);
         });
       </script>
-      
+    
       <div class="check_box">
         <h4>タグ</h4>
         <%= f.collection_select(:tag_ids, Tag.all, :id, :name) do |tag| %>
@@ -54,9 +54,9 @@
     　       <% end %>
           </div>
         <% end %>
-      </div>
+      </div>    
     
-      <div class="pt-3">
+      <div class="pt-4">
         <%= f.submit '更新', class: 'btn btn-sm btn-success' %>
         <%= link_to "削除", review_path(@review.id), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-sm btn-danger" %>
       </div>

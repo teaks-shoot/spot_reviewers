@@ -12,13 +12,10 @@ class Admin::TagsController < ApplicationController
     redirect_to admin_tags_path
   end
   
-  def edit
-  end
-  
-  def updete
-  end
-  
   def destroy
+    tag = Tag.find(params[:id])
+    tag.destroy
+    redirect_to '/admin/tags'
   end
   
   
