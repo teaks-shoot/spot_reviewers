@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #管理者ユーザーのルート
   namespace :admin do
     get 'top', to: 'homes#top'
     resources :users, only: [:index, :show, :destroy]
@@ -12,11 +13,12 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
   
-   devise_for :users, controllers: { 
-     registrations: 'public/registrations',
-     sessions: 'public/sessions'
-   }
-
+  #一般ユーザーのルート
+  devise_for :users, controllers: { 
+    registrations: 'public/registrations',
+    sessions: 'public/sessions'
+  }
+  
   scope module: :public do
     root to: "homes#top"
     get 'mypage' => 'users#mypage', as: 'mypage'
