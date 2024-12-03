@@ -17,7 +17,7 @@
     
       <div class="form-group">
         <h4>名前</h4>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: 'form-control user_name' %>
       </div>
 
       <div class="form-group">
@@ -27,7 +27,7 @@
     
       <div class="form-group">
         <h4>紹介文</h4>
-        <%= f.text_area :infomation %>
+        <%= f.text_area :infomation, class: 'form-control user_infomation' %>
       </div>
     
       <%= f.submit 'ユーザー更新' %>
