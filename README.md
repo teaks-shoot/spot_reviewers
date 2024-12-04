@@ -28,9 +28,12 @@
 ​
 　
 ## 設計書
-後ほど作成予定
+- [UI Flows](https://drive.google.com/file/d/1j8QiiHd5M5dc2-ODDvSDTVhzjwK2d6S3/view?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1ZSK21KrvZ3E-EaZ2xkNd-TzAjEYPx8Xs/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/18kkE73G5rmakIhx5vskflnBFHJSVRDC46781QMwjSto/edit?gid=1044500859#gid=1044500859)
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1MPRtsxx9ZOAM3okSF8kNDU70RUs6wGvmjTZbrqftl58/edit?gid=549108681#gid=549108681)
 
-​
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
