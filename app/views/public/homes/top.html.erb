@@ -11,15 +11,16 @@
 
       <p class="text-center">さらに、特定のジャンルを絞り込むことで、自分好みの名所を探すことが可能です。</p>
 
-
-      <div class="mx-auto btn-wrapper col-7">
-        <div class="row mb-3 pt-4">
-          <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary btn-block font-weight-bold" %>
+      <% unless user_signed_in? %>
+        <div class="mx-auto btn-wrapper col-7">
+          <div class="row mb-3 pt-4">
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary btn-block font-weight-bold" %>
+          </div>
+          <div class="row">
+            <%= link_to "会員登録", new_user_registration_path, class: "btn btn-outline-info btn-block font-weight-bold" %>
+          </div>
         </div>
-        <div class="row">
-          <%= link_to "会員登録", new_user_registration_path, class: "btn btn-outline-info btn-block font-weight-bold" %>
-        </div>
-      </div>
+      <% end %>
       
       <div class="mt-5 mx-auto border-top border-dark"></div>
       
