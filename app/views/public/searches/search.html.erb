@@ -1,37 +1,41 @@
 <% if @model == 'user' %>
 
-  <h3>【ユーザー】 検索結果： "<%= @content %>"</h3>
-  <table>
-    <tr>
-      <th></th>
-      <th>名前</th>
-      <th>レビュー数</th>
-    </tr>
-    <% @records.each do |user| %>
+  <div class="container">
+    <h3>【ユーザー】 検索結果： "<%= @content %>"</h3>
+    <table>
       <tr>
-        <td><%= image_tag user.get_profile_image(70,70) %></td>
-        <td><%= link_to user.name, user_path(user) %></td>
-        <td><%= user.review_count %></td>
+        <th></th>
+        <th>名前</th>
+        <th>レビュー数</th>
       </tr>
-    <% end %>
-  </table>
+      <% @records.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image(70,70) %></td>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= user.review_count %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
 <% elsif @model == 'review' %>
 
-  <h3>【レビュー】 検索結果： "<%= @content %>"</h3>
-  <table>
-    <tr>
-      <th>名所</th>
-      <th>レビュー</th>
-      <th>評価</th>
-    </tr>
-    <% @records.each do |review| %>
+  <div class="container">
+    <h3>【レビュー】 検索結果： "<%= @content %>"</h3>
+    <table>
       <tr>
-        <td><%= link_to review.title, review_path(review) %></td>
-        <td><%= truncate(review.body, length: 30, omission: '...') %></td>
-        <td><%= render "public/reviews/starrate", review: review %></td>
+        <th>名所</th>
+        <th>レビュー</th>
+        <th>評価</th>
       </tr>
-    <% end %>
-  </table>
+      <% @records.each do |review| %>
+        <tr>
+          <td><%= link_to review.title, review_path(review) %></td>
+          <td><%= truncate(review.body, length: 30, omission: '...') %></td>
+          <td><%= render "public/reviews/starrate", review: review %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
   
 <% end %>
