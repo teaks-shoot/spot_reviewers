@@ -3,9 +3,7 @@
     <h1 class="text-center">ユーザー詳細</h1>
     <div class="row justify-content-center">
       <div class="col-8">
-        <%= link_to mypage_path do %>
-          <%= image_tag @user.get_profile_image(100,100) %>
-        <% end %>
+        <%= image_tag @user.get_profile_image(100,100) %>
         <p> 名前　　　　　　：<%= @user.name %> </p>
         <p> メールアドレス　：<%= @user.email %> </p>
         <p> 紹介文　　　　　：<%= @user.infomation %> </p>
