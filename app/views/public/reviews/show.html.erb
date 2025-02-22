@@ -27,7 +27,7 @@
     <h4 class="font-weight-bold">評価</h4>
     <p><%= render "starrate", review: @review %></p>
     
-    <h4>タグ</h4>
+    <h4 class="font-weight-bold">タグ</h4>
     <div class="border border-primary w-25">
       <% @review.tags.each do |tag| %>
         <%= tag.name %>
