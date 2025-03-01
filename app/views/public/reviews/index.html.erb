@@ -18,8 +18,8 @@
       <thead>
         <tr>
           <th></th>
-          <th> 名所 </th>
-          <th> レビュー </th>
+          <th class="px-3"> 名所 </th>
+          <th class="px-3"> レビュー </th>
           <th> 評価 </th>
           <th> タグ </th>
           <th></th>
@@ -31,26 +31,26 @@
         <tbody>
           <tr>
             <% if current_user == review.user %>
-              <td>
+              <td class="px-3">
                 <%= link_to mypage_path do %>
                   <%= image_tag review.user.get_profile_image(50,50) %>
                 <% end %>
               </td>
             <% else %>
-              <td>
+              <td class="px-3">
                 <%= link_to user_path(review.user.id) do %>
                   <%= image_tag review.user.get_profile_image(50,50) %>
                 <% end %>
               </td>
             <% end %>
           
-            <td>
+            <td class="px-3">
               <%= link_to review_path(review) do %>
                 <%= review.title %>
               <% end %>
             </td>
             
-            <td>
+            <td class="px-3">
               <%= truncate(review.body, length: 30, omission: '...') %>
             </td>
           
